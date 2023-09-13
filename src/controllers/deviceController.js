@@ -13,7 +13,7 @@ function receiveMessage(req, res) {
 
   devicesAndTime[device_guid] = devicesAndTime[device_guid] || {};
 
-  // Update the timestamp for the device_guid and path
+  // Update the timestamp for the device guid and path
   devicesAndTime[device_guid][path] = Date.now();
 
   // Reset the timer
