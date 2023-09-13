@@ -1,4 +1,4 @@
-# Texecom
+# **Texecom**
 
 ## Getting Started
 
@@ -8,8 +8,9 @@
 
 ## API Documentation
 
-URL: {{host}}/api/receiveMessage
-Body: {
-    "device_guid": "string" // length should equal to 32,
-    "path": "string" // ["ethernet", "wifi", "gsm"]
-}
+
+**URL:** {{host}}/api/receiveMessage
+**Request Body:**
+
+`device_guid`: A string field, and its length should equal 32 characters.
+`path`: A string field representing a path, which appears to have a predefined set of values: `["ethernet", "wifi", "gsm"]`.
