@@ -13,4 +13,5 @@
 **Request Body:**
 
 `device_guid`: A string field, and its length should equal 32 characters.
+
 `path`: A string field representing a path, which appears to have a predefined set of values: `["ethernet", "wifi", "gsm"]`.
