@@ -19,7 +19,7 @@ function receiveMessage(req, res) {
   // Reset the timer
   resetDeviceTimer(device_guid, path);
 
-  // Clear the fault logged flag when a message is received
+  // Clear the fault logged flag when message is received
   faultLogged[device_guid] = faultLogged[device_guid] || {};
   faultLogged[device_guid][path] = false;
 
