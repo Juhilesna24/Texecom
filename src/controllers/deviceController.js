@@ -5,8 +5,7 @@ const pathTimers = {
   wifi: 45,
   gsm: 60,
 };
-const faultTimers = {}; 
-const faultLogged = {}; 
+const faultTimers = {};
 
 function receiveMessage(req, res) {
   const { device_guid, path } = req.body;
@@ -21,8 +20,6 @@ function receiveMessage(req, res) {
 
   // Clear the fault logged flag and fault timer when message is received
   clearInterval(faultTimers[device_guid]?.[path]);
-  faultLogged[device_guid] = faultLogged[device_guid] || {};
-  faultLogged[device_guid][path] = false;
 
   res.sendStatus(200);
 }
@@ -42,11 +39,9 @@ function checkDeviceTimer(device_guid, path) {
   const lastMessageTime = devicesAndTime[device_guid]?.[path] || 0;
   const interval = pathTimers[path] * 1000;
 
-  if (!faultLogged[device_guid]?.[path] && currentTime - lastMessageTime > interval) {
+  if (currentTime - lastMessageTime > interval) {
     console.log(`Device fault ${device_guid} for path ${path}`);
     startDeviceFaultTimer(device_guid, path);
-    // mark as true when the device fault logs initiated
-    faultLogged[device_guid][path] = true;
   }
 }
 
