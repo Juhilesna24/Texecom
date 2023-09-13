@@ -10,6 +10,7 @@
 
 
 **URL:** {{host}}/api/receiveMessage
+
 **Request Body:**
 
 `device_guid`: A string field, and its length should equal 32 characters.
